@@ -1,4 +1,4 @@
-import { FormTask } from "./components/FormTask"
+import { FormTask } from "./components/formtask/FormTask"
 import TodoApp from "./todoApp"
 
 
@@ -7,10 +7,10 @@ function App() {
 
   return (
     <>
-        <h1>todo list</h1>
+        <h1 className="text-capitalize mx-auto">todo list</h1>
         <FormTask/>
 
-        <h1>nuevo</h1>
+       
       {/*   <TodoApp/> */}
     </>
   )
