@@ -19,9 +19,9 @@ export const Form = ({taskInfo}) => {
                     <label htmlFor="floatingTextarea2">más info sobre tu tarea</label>
                 </div>
             
-                <button type="submit" className="btn btn-primary button d-block mx-auto mt-3 mb-5">crear tarea</button>
+                <button type="submit" className="btn btn-primary button d-block mx-auto mt-3 mb-5 fw-bold p-3">crear tarea</button>
             </form>
-       </div>
+    </div>
 
 
     

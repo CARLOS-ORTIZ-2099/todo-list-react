@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { FormTask } from "./components/formtask/FormTask"
+import { Header } from "./components/header/Header"
 import TodoApp from "./todoApp"
 
 
@@ -7,7 +9,7 @@ function App() {
 
   return (
     <>
-        <h1 className="text-capitalize mx-auto">todo list</h1>
+       <Header/>
         <FormTask/>
 
        

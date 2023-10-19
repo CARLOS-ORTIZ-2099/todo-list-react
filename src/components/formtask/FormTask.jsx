@@ -2,16 +2,11 @@ import { useEffect, useState } from "react"
 import { Tasks } from "../task/Tasks"
 import { Form } from "../form/Form"
 import { Buscador } from "../buscador/Buscador"
+import { alertConfirmation } from "../../helpers/alertConfirmation"
+import getLocalSt from "../../helpers/getLocalSt"
 
 export const FormTask = () => {
-const [data, setData] = useState(() => {
-    let dataTasks = localStorage.getItem('tasksReact')
-    if(dataTasks){
-        return JSON.parse(dataTasks)
-    }else{
-        return []
-    }
-})
+const [data, setData] = useState(() => getLocalSt('tasksReact'))
 
 const [copy, setCopy] = useState([])
 
@@ -24,20 +19,23 @@ const taskInfo = (e) => {
     e.preventDefault()
     let titleTask = e.target.title.value
     let desc = e.target.description.value
+    if(titleTask.length < 1 && desc.length < 1){
+            alert('ambos campos son requeridos')
+            return
+    }
     let dataTask = {
         id: new Date().getTime(),
         titleTask,
         desc,
-        edit:false
+        edit:false,
+        creationDate: new Date().getTime()
     }
     setData((previus) => [...previus, dataTask])
     e.target.reset() 
 }
 
 const deleteTask = (idTask) => {
-    console.log(idTask)
-    let response = data.filter(ele => ele.id!== idTask)
-    setData(response)
+    alertConfirmation(idTask, data, setData)
 }
 
 const edit = (idTask) => {
