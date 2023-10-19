@@ -19,7 +19,7 @@ const taskInfo = (e) => {
     e.preventDefault()
     let titleTask = e.target.title.value
     let desc = e.target.description.value
-    if(titleTask.length < 1 && desc.length < 1){
+    if(titleTask.length < 1 || desc.length < 1){
             alert('ambos campos son requeridos')
             return
     }
