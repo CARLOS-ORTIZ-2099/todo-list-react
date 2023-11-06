@@ -56,15 +56,17 @@ const saveChange = (e,idTask) => {
 const taskFind = (e) => {
    let target = e.target.value
    if(target.length<1){
-    setCopy(data)
+        setCopy(data)
+        return
    }
    let copyData = [...data]
    console.log(copyData)
-   let response = copyData.filter(task => task.titleTask.includes(target))
+   let response = copyData.filter(task => task.titleTask.toLowerCase().includes(target.toLowerCase()))
    console.log(response)
    setCopy(response)
    
 }
+
   return (
    <>   
         <Buscador taskFind={taskFind}/>
